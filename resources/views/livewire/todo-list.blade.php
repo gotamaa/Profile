@@ -53,15 +53,19 @@
                         @else
                             <input type="checkbox" class="mr-2" wire:click='toggle({{ $todo->id }})'>
                         @endif
-                        @if ($editid == $todo->id)
-                            <input wire:model='newname' type="text" placeholder="Todo.."
-                                class="bg-gray-100  text-gray-900 text-sm rounded block w-full p-2.5" value="Todo Name">
-                            @error('newname')
-                                <span class="text-red-500 text-xs block">{{ $Message }}</span>
-                            @enderror
-                        @else
-                            <h3 class="text-lg text-semibold text-gray-800">{{ $todo->name }}</h3>
-                        @endif
+
+                        <div>
+                            @if ($editid == $todo->id)
+                                <input wire:model='newname' type="text" placeholder="Todo.."
+                                    class="bg-gray-100  text-gray-900 text-sm rounded block w-full p-2.5"
+                                    value="Todo Name">
+                                @error('newname')
+                                    <span class="ml-1 mt-1 text-red-500 text-xs block">{{ $message }}</span>
+                                @enderror
+                            @else
+                                <h3 class="text-lg text-semibold text-gray-800">{{ $todo->name }}</h3>
+                            @endif
+                        </div>
                     </div>
 
                     <div class="flex items-center space-x-2">
